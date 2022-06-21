@@ -7,7 +7,7 @@ buildroot_defconfig = configs/buildroot_defconfig
 linux_defconfig = configs/linux_defconfig
 busybox_defconfig = configs/busybox.config
 
-Image: $(buildroot_defconfig) $(linux_defconfig) $(busybox_defconfig)
+Image: $(buildroot_defconfig) $(linux_defconfig) $(busybox_defconfig) rootfs
 	make -C buildroot defconfig BR2_DEFCONFIG=../$(buildroot_defconfig)
 	make -C buildroot -j$(NR_CORES)
 	cp buildroot/output/images/Image Image
